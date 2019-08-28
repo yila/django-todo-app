@@ -1,3 +1,8 @@
+# Overview
+I came across a TDD tutorial video by Harry Percival on youtube (https://youtu.be/_rLPDxpXIFc).  Though, I teach TDD workshops myself, I loved Harry's approach.  I also was pleasantly surprised that he used a To Do app example, which I use as well.
+
+I've created this repo to demonstrate step by step approach to his tutorial.  You can see the commits to view the progression of the tutorial.
+
 # Required Installation
 
 * Python 3.6
@@ -36,3 +41,14 @@ browser.quit()<br/>
 
 Run the **test-installation.py** file.  If everything is installed correctly you should see 'Google' print in the terminal.
 <code>python test-installation.py</code>
+
+# Creating and Running a Django App
+To create a Django project:
+
+<code>$ django-admin startproject \<name of project\> </code>
+
+This should generate a few files including **manage.py**.
+
+To run the app:
+
+<code>$ python manage.py runserver</code>

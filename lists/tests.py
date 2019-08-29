@@ -16,5 +16,5 @@ class HomePageTest(TestCase):
         self.assertTrue(html.startswith('<html>'),
             f'Expected to start with \'<html>\', but was \'{html}\'')
         self.assertIn('<title>To-Do List', html)
-        self.assertTrue(html.endswith('</html>'),
+        self.assertTrue(html.strip().endswith('</html>'),
             f'Expected to end with \'<html>\', but was \'{html}\'')

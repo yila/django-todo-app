@@ -13,6 +13,8 @@ class HomePageTest(TestCase):
     def test_home_page_returns_correct_html(self):
         response = self.client.get('/')
         html = response.content.decode('utf8')
-        self.assertTrue(html.startswith('<html>'))
+        self.assertTrue(html.startswith('<html>'),
+            f'Expected to start with \'<html>\', but was \'{html}\'')
         self.assertIn('<title>To-Do List', html)
-        self.assertTrue(html.endswith('</html>'))
+        self.assertTrue(html.endswith('</html>'),
+            f'Expected to end with \'<html>\', but was \'{html}\'')

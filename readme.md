@@ -1,5 +1,5 @@
 # Overview
-I came across a TDD tutorial video by Harry Percival on youtube (https://youtu.be/_rLPDxpXIFc).  Though, I teach TDD workshops myself, I loved Harry's approach.  I also was pleasantly surprised that he used a To Do app example, which I use as well.
+I came across a TDD tutorial video by Harry Percival on youtube (https://youtu.be/_rLPDxpXIFc).  Though, I teach TDD workshops myself, I loved Harry's approach.  I also was pleasantly surprised that he used a To Do app example, which I use as well.  His book is available online, for free, at https://www.obeythetestinggoat.com/.
 
 I've created this repo to demonstrate step by step approach to his tutorial.  You can see the commits to view the progression of the tutorial.
 

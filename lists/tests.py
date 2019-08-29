@@ -1,5 +1,6 @@
 from django.test import TestCase
 from django.urls import resolve
+from lists.views import home_page
 
 # Create your tests here.
 # To run the test execute the following from 'django-todo-app' folder:

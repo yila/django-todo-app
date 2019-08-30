@@ -10,11 +10,6 @@ class HomePageTest(TestCase):
         resolveResult = resolve('/')
         self.assertEqual(resolveResult.func, home_page)
 
-    def test_home_page_returns_correct_html(self):
+    def test_rendering_correct_file(self):
         response = self.client.get('/')
-        html = response.content.decode('utf8')
-        self.assertTrue(html.startswith('<html>'),
-            f'Expected to start with \'<html>\', but was \'{html}\'')
-        self.assertIn('<title>To-Do List', html)
-        self.assertTrue(html.strip().endswith('</html>'),
-            f'Expected to end with \'<html>\', but was \'{html}\'')
+        self.assertTemplateUsed(response, 'index.html')

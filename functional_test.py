@@ -34,12 +34,6 @@ class HomePageTest(unittest.TestCase): # unittest.TestCase means we are inhering
         input_box.send_keys(Keys.ENTER)
         time.sleep(1)
 
-        table = self.browser.find_element_by_id('id_to_do_list')
-        rows = table.find_element_by_tag_name('tr')
-        self.assertTrue(
-            any(row.text == '1: Stain deck stairs' for row in rows)
-        )
-
         self.fail('Finish this test! - forcing to failing on purpose')
 
 if __name__ == '__main__':

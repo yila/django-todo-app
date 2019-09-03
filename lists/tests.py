@@ -13,3 +13,7 @@ class HomePageTest(TestCase):
     def test_use_correct_template(self):
         response = self.client.get('/')
         self.assertTemplateUsed(response, 'index.html')
+
+    def test_handles_post_request(self):
+        post_response = self.client.post('/', {'item_text': 'my first to-do item'})
+        self.assertIn('my first to-do item', post_response.content.decode())

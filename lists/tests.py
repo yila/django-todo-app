@@ -10,6 +10,6 @@ class HomePageTest(TestCase):
         resolveResult = resolve('/')
         self.assertEqual(resolveResult.func, home_page)
 
-    def test_rendering_correct_file(self):
+    def test_use_correct_template(self):
         response = self.client.get('/')
         self.assertTemplateUsed(response, 'index.html')

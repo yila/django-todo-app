@@ -34,10 +34,16 @@ class HomePageTest(unittest.TestCase): # unittest.TestCase means we are inhering
         input_box.send_keys(Keys.ENTER)
         time.sleep(1)
 
+        input_box = self.browser.find_element_by_id('id_new_item')
+        input_box.send_keys('Discard old planks')
+        input_box.send_keys(Keys.ENTER)
+        time.sleep(1)
+
         # and she expects to see what she entered on the resulting page
         table = self.browser.find_element_by_id('id_to_do_list')
         rows = table.find_elements_by_tag_name('tr')
         self.assertIn('1: Stain deck stairs', [row.text for row in rows])
+        self.assertIn('2: Discard old planks', [row.text for row in rows])
 
         self.fail('Finish this test! - forcing to failing on purpose')
 

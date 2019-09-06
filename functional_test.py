@@ -29,15 +29,12 @@ class HomePageTest(unittest.TestCase): # unittest.TestCase means we are inhering
         self.assertEqual(input_box.get_attribute('placeholder'),
             'Enter a to-do item')
 
-        # she types in 'Stain deck stairs'
-        input_box.send_keys('Stain deck stairs')
-        input_box.send_keys(Keys.ENTER)
-        time.sleep(1)
+        # she types in one todo item
+        self.enter_a_todo_item_on_page('Stain deck stairs')
 
-        input_box = self.browser.find_element_by_id('id_new_item')
-        input_box.send_keys('Discard old planks')
-        input_box.send_keys(Keys.ENTER)
-        time.sleep(1)
+        # ...and then the next
+        self.enter_a_todo_item_on_page('Discard old planks')
+
 
         # and she expects to see what she entered on the resulting page
         table = self.browser.find_element_by_id('id_to_do_list')
@@ -46,6 +43,12 @@ class HomePageTest(unittest.TestCase): # unittest.TestCase means we are inhering
         self.assertIn('2: Discard old planks', [row.text for row in rows])
 
         self.fail('Finish this test! - forcing to failing on purpose')
+
+    def enter_a_todo_item_on_page(self, todo_item):
+        input_box = self.browser.find_element_by_id('id_new_item')
+        input_box.send_keys(todo_item)
+        input_box.send_keys(Keys.ENTER)
+        time.sleep(1)
 
 if __name__ == '__main__':
   unittest.main()

@@ -1,5 +1,5 @@
 from django.db import models
 
 # Create your models here.
-class ToDoItem(object):
+class ToDoItem(models.Model):
     pass

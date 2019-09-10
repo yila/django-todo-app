@@ -17,8 +17,13 @@ class HomePageTest(TestCase):
 
     def test_can_save_a_post_request(self):
         post_response = self.client.post('/', {'item_text': 'my first to-do item'})
+
         self.assertEqual(ToDoItem.objects.count(), 1)
-        self.assertIn('my first to-do item', post_response.content.decode())
+        saved_item = ToDoItem.objects.first()
+        self.assertEqual(saved_item.description, 'my first to-do item')
+
+        self.assertEqual(post_response.status_code, 302)
+        self.assertEqual(post_response['location'], '/')
 
     def test_do_not_save_items_on_a_get_request(self):
         self.client.get('/')

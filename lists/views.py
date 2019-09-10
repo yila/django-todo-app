@@ -1,11 +1,10 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.http import HttpResponse
 from lists.models import ToDoItem
 
 # Create your views here.
 def home_page(request):
     if request.method == 'POST':
-        description = request.POST['item_text']
-        ToDoItem.objects.create(description=description)
-        return render(request, 'index.html', {'new_item_text':description})
+        ToDoItem.objects.create(description=request.POST['item_text'])
+        return redirect('/')
     return render(request, 'index.html')

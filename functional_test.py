@@ -42,7 +42,6 @@ class HomePageTest(unittest.TestCase): # unittest.TestCase means we are inhering
         self.assertIn('1: Stain deck stairs', [row.text for row in rows])
         self.assertIn('2: Discard old planks', [row.text for row in rows])
 
-        self.fail('Finish this test! - forcing to failing on purpose')
 
     def enter_a_todo_item_on_page(self, todo_item):
         input_box = self.browser.find_element_by_id('id_new_item')

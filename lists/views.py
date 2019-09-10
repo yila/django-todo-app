@@ -7,4 +7,5 @@ def home_page(request):
     if request.method == 'POST':
         ToDoItem.objects.create(description=request.POST['item_text'])
         return redirect('/')
-    return render(request, 'index.html')
+    toDoItems = ToDoItem.objects.all()
+    return render(request, 'index.html', {'toDoItems': toDoItems})

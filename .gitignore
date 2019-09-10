@@ -2,3 +2,4 @@
 .idea/
 .python-version
 **/virtenv-python3.6/
+*.sqlite*

@@ -30,3 +30,12 @@ class HomePageTest(TestCase):
     def test_do_not_save_items_on_a_get_request(self):
         self.client.get('/')
         self.assertEqual(ToDoItem.objects.count(), 0)
+
+    def test_display_all_todo_items(self):
+        ToDoItem.objects.create(description='item 1')
+        ToDoItem.objects.create(description='item 2')
+
+        response = self.client.get('/')
+
+        self.assertIn('item 1', response.content.decode())
+        self.assertIn('item 2', response.content.decode())

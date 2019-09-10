@@ -22,6 +22,8 @@ class HomePageTest(TestCase):
         saved_item = ToDoItem.objects.first()
         self.assertEqual(saved_item.description, 'my first to-do item')
 
+    def test_should_redirect_after_POST(self):
+        post_response = self.client.post('/', {'item_text': 'a to-do item'})
         self.assertEqual(post_response.status_code, 302)
         self.assertEqual(post_response['location'], '/')
 
